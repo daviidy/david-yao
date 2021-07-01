@@ -1,0 +1,21 @@
+<%= form_for(@skill, html: {multipart: true}) do |f| %>
+  <ul>
+  <% @skill.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %> 
+  </p>
+  <p>
+    <%= f.label :image %><br />
+    <%= f.url_field :image %>
+  </p>
+  <p>
+    <%= f.label :skill_type %><br />
+    <%= f.select :skill_type, ['languages', 'skills', 'databases', 'frameworks']%>
+  </p>
+    <%= f.submit %>
+  </p>
+<% end %>
