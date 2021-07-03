@@ -1,6 +1,7 @@
 class PositionsController < ApplicationController
     before_action :authorize
     def index
+        @positions = Position.all
     end
 
     def new
@@ -9,8 +10,12 @@ class PositionsController < ApplicationController
 
     def create
         @position = Position.new(position_params)
-        flash.notice = 'Your position has been added'
-        redirect_to positions_path
+        if @position.save
+            flash.notice = 'Your postiion has been added'
+            redirect_to positions_path
+        else
+            render :new
+        end
     end
 
     def edit

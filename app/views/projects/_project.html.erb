@@ -1,0 +1,16 @@
+<%= form_for(@project, html: {multipart: true}) do |f| %>
+  <ul>
+  <% @project.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %> 
+  </p>
+  <p>
+    <%= f.collection_select(:category_ids, Skill.all, :id, :name, {}, {:multiple => true, :class => 'js-example-basic-multiple'}) %><br>
+  </p>
+    <%= f.submit %>
+  </p>
+<% end %>
