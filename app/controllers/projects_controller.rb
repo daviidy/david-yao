@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
     end
     
     def create
-        @project = Project.new(project_params)
+        @project = Project.create(project_params)
         if @project.save
             flash.notice = 'Your project has been added'
             redirect_to projects_path
@@ -41,6 +41,6 @@ class ProjectsController < ApplicationController
     private 
 
     def project_params
-        params.require(:project).permit(:title, :company, :start_year, :end_year, :short_desc, :long_desc, :github, :demo, :image)
+        params.require(:project).permit(:title, :company, :start_year, :end_year, :short_desc, :long_desc, :github, :demo, :image, :position_id, skill_ids: [])
     end
 end

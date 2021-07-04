@@ -1,6 +1,5 @@
 class Position < ApplicationRecord
-    has_many :position_projecting, foreign_key: "position_id"
-    has_many :projects, through: :position_projecting
+    has_many :projects
 
     validates_presence_of :title
     validates_length_of :title, minimum: 4

@@ -9,7 +9,44 @@
     <%= f.text_field :title %> 
   </p>
   <p>
-    <%= f.collection_select(:category_ids, Skill.all, :id, :name, {}, {:multiple => true, :class => 'js-example-basic-multiple'}) %><br>
+    <%= f.label :company %><br />
+    <%= f.text_field :company %> 
+  </p>
+  <p>
+    <%= f.label :start_year %><br />
+    <%= f.date_field :start_year %> 
+  </p>
+  <p>
+    <%= f.label :end_year %><br />
+    <%= f.date_field :end_year %> 
+  </p>
+  <p>
+    <%= f.label :short_desc %><br />
+    <%= f.text_area :short_desc %> 
+  </p>
+  <p>
+    <%= f.label :long_desc %><br />
+    <%= f.text_area :long_desc %> 
+  </p>
+  <p>
+    <%= f.label :github %><br />
+    <%= f.text_field :github %> 
+  </p>
+  <p>
+    <%= f.label :demo %><br />
+    <%= f.text_field :demo %> 
+  </p>
+  <p>
+    <%= f.label :image %><br />
+    <%= f.text_field :image %> 
+  </p>
+  <p>
+    <%= f.collection_select(:skill_ids, Skill.all, :id, :title, {}, {:multiple => true, :class => 'form-control js-example-basic-multiple'}) %><br>
+  </p>
+
+  <p>
+    <%= f.label :position_id %><br />
+    <%= f.select :position_id, Position.all.collect{ |p| [p.title, p.id] } %>
   </p>
     <%= f.submit %>
   </p>

@@ -1,8 +1,7 @@
 class Project < ApplicationRecord
-    has_many :project_skillings, foreign_key: "project_id"
+    has_many :project_skillings, foreign_key: :project_id, inverse_of: :project
     has_many :skills, through: :project_skillings
-    has_many :position_projecting, foreign_key: "project_id"
-    has_many :positions, through: :position_projecting
+    belongs_to :position
 
     validates_presence_of :title
     validates_length_of :title, minimum: 4
