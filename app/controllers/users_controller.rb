@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :authorize, only: %i[home]
     before_action :auth, only: %i[new]
+    layout "welcome", :only => [ :welcome ]
     def new
     end
 
@@ -16,6 +17,10 @@ class UsersController < ApplicationController
 
     def home
         render :home
+    end
+
+    def welcome
+        render :welcome
     end
     
 

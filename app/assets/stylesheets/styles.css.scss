@@ -1,0 +1,39 @@
+.blue-oschool {
+    color: #4D90CC;
+}
+
+.bg-oschool {
+    background-color: #4D90CC;
+}
+
+a, a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* welcome page */
+.links {
+    width: 50%;
+    margin: auto;
+}
+
+.link {
+    border: 2px solid rgb(61, 59, 60);
+    background-color: rgb(61, 59, 60);
+    color: rgb(255, 255, 255);
+    border-radius: 0px;
+    padding: 16px 20px;
+}
+
+.link a {
+    color: #fff;
+}
+
+.link:hover {
+    background-color: transparent;
+    border-color: rgb(61, 59, 60);
+}
+
+.link:hover+.link a {
+    color: rgb(61, 59, 60);
+}

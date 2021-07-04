@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get '/home' => 'users#home'
 
+  get '/' => 'users#welcome'
+
   resources :skills
 
   resources :positions

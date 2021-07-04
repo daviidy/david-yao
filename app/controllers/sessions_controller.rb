@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     before_action :auth, only: %i[new]
+    layout "auth", :only => [ :new ]
     def new
         
     end
