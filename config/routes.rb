@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get '/portfolio' => 'users#projects'
 
-  get '/' => 'users#welcome'
+  root 'users#welcome'
 
   resources :skills
 
