@@ -1,0 +1,25 @@
+<% content_for :title do %>
+  Links
+<% end %>
+<div class="row justify-content-center">
+    <% @links.each do |link| %>
+        <div class="col-12 col-md-3 border rounded p-3 list-item">
+            <div class="item-img d-flex flex-wrap justify-content-between">
+                <img class="img-fluid rounded-circle" style="width: 10%;" src="https://cdn.loom.com/avatars/4812981_a5e2e546af88de880e5413c7a108f263_192.jpg" alt="">
+                <div class="actions d-flex flex-wrap justify-content-between">
+                <%= link_to link_path(link), method: :delete, data: {confirm: "Really delete the link?"} do %>
+                    <i class="far fa-trash-alt"></i>
+                <% end %>
+                <%= link_to edit_link_path(link) do %>
+                    <i class="far fa-edit"></i>
+                <% end %>
+                </div>
+            </div>
+            <div class="infos">
+                <p class="font-weight-bold mb-3 mt-3">
+                    <%=link.text%>
+                </p>
+            </div>
+        </div>
+    <% end %>
+</div>

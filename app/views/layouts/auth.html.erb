@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>David Yao</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" %>
+    <%=javascript_include_tag "https://kit.fontawesome.com/d86848cfe0.js"  %> 
+  </head>
+
+  <body class="body p-sm-5">
+    <div class="container-fluid h-100">
+        <% if flash[:notice] %>
+            <div class="row">
+                <div class="col-12">
+                    <div class="alert alert-success mr-auto ml-auto w-50 mt-3">
+                        <strong>Success!</strong>
+                        <%= notice %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+
+        <%= yield %>
+
+    </div>
+    
+  </body>
+</html>

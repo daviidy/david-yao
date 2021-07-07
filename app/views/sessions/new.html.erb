@@ -1,0 +1,23 @@
+
+  <div class="row h-100">
+    <%= form_tag('login', {:class => 'col-12 col-md-4 m-md-auto p-0 bg-white text-dark rounded'}) do |f| %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+        <img class="img-fluid rounded-circle" width="50" src="https://secure.gravatar.com/avatar/9c275cba24f7c939201cda28f832f8e0?d=404&s=160" alt="">
+        <div class="welcome text-center pt-5 pl-5 pr-5 pb-3">
+          <p>Welcome !</p>
+        </div>
+        <div class="p-3">
+          <strong>Name</strong><br />
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                @
+              </div>
+            </div>
+            <%= text_field_tag :name, "", class: 'form-control' %><br>
+          </div>
+        </div>
+        <%= submit_tag 'Sign In', {:class => 'login-button w-100 text-center text-uppercase bg-oschool p-3 text-white'} %>
+    <% end %>
+
+  </div>

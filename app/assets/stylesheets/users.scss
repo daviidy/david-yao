@@ -1,0 +1,122 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.portfolio a {
+    color: #000 !important;
+}
+
+p {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.primary {
+    color: #6070FF !important;
+}
+
+.background-primary-light {
+    background: #EBEBFF;
+}
+
+.background-primary {
+    background: #6070FF;
+}
+
+.title {
+    font-size: 40px;
+    line-height: 52px;
+}
+
+.project {
+    border: 1px solid #DFE1E6;
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.card-title {
+    font-size: 32px;
+    line-height: 44px;
+}
+
+.project-cta {
+    text-align: center;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 24px;
+    border-radius: 8px;
+    border: 1px solid #6070FF;
+}
+
+.project i,
+.modal-body i {
+    font-size: 8px;
+    color: #C1C7D0;
+}
+
+.skill-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.skill {
+    margin: 5px;
+}
+
+.dropdown-menu {
+    position: absolute !important;
+    left: auto;
+    right: 0;
+}
+
+.modal-body .col-8 {
+    padding-left: 4rem;
+}
+
+.alinea {
+    padding-left: 2rem;
+}
+
+/* media queries */
+@media screen and (max-width: 575px) {
+    .navbar-nav {
+        display: none;
+    }
+
+    .skill {
+        width: 100%;
+    }
+
+    .jumbotron {
+        padding: 6rem;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .skill {
+        width: 25%;
+    }
+
+    .skill p {
+        font-size: 10px !important;
+    }
+
+    .contact {
+        width: 50%;
+    }
+
+    .modal-dialog {
+        max-width: 90%;
+    }
+
+    .jumbotron {
+        padding: 10rem;
+    }
+
+    .spacing {
+        padding: 5rem;
+    }
+}

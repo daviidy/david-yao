@@ -1,0 +1,56 @@
+<div class="row justify-content-center mt-3 mb-5">
+  <%= form_for(@project, html: {:class => 'border rounded p-3', multipart: true}) do |f| %>
+    <ul>
+      <% @project.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :company %>
+      <%= f.text_field :company, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :start_year %>
+      <%= f.date_field :start_year, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :end_year %>
+      <%= f.date_field :end_year, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :short_desc %>
+      <%= f.text_area :short_desc, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :long_desc %>
+      <%= f.text_area :long_desc, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :github %>
+      <%= f.url_field :github, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :demo %>
+      <%= f.url_field :demo, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.text_field :image, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <label>Skills</label>
+      <%= f.collection_select(:skill_ids, Skill.all, :id, :title, {}, {:multiple => true, :class => 'form-control js-example-basic-multiple'}) %><br>
+    </div>
+    <div class="form-group">
+      <%= f.label :position_id %>
+      <%= f.select :position_id, Position.all.collect{ |p| [p.title, p.id] }, class: 'form-control' %>
+    </div>
+    <%= f.submit 'Create', {:class => 'btn bg-oschool text-white rounded'} %>
+  <% end %>
+</div>
+
+

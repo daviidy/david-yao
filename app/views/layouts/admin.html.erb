@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Panel - David Yao</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%=javascript_include_tag "https://kit.fontawesome.com/d86848cfe0.js"  %> 
+    <%=javascript_include_tag "https://unpkg.com/feather-icons"  %> 
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" %>
+    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" %>
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+        <div class="row d-flex flex-wrap">
+          <div class="col-auto d-none d-md-block">
+            <nav class="sidebar border-right p-0 d-flex flex-column align-items-center">
+              <div class="rounded-circle bg-light d-flex flex-column align-items-center text-center">
+                <%# <a href="" class="" data-toggle="tooltip" data-placement="right" title="List of projects">
+                  <i class="fas fa-project-diagram"></i>
+                </a> %>
+                <%= link_to projects_path, :'data-toggle' => 'tooltip', :'data-placement' => 'right', :'title' => 'Add a project' do %>
+                    <i class="fas fa-project-diagram"></i>
+                <% end %>
+              </div>
+              <div class="rounded-circle bg-light text-center">
+                <%# <a href="" class="" data-toggle="tooltip" data-placement="right" title="Add a project">
+                  <i class="fas fa-plus"></i>
+                </a> %>
+                <%= link_to new_project_path, :'data-toggle' => 'tooltip', :'data-placement' => 'right', :'title' => 'Add a project' do %>
+                    <i class="fas fa-plus"></i>
+                <% end %>
+              </div>
+              <div class="rounded-circle bg-light text-center">
+                <%= link_to skills_path, :'data-toggle' => 'tooltip', :'data-placement' => 'right', :'title' => 'List of skills' do %>
+                    <i class="fas fa-cog"></i>
+                <% end %>
+              </div>
+              <div class="rounded-circle bg-light text-center">
+                <%= link_to new_skill_path, :'data-toggle' => 'tooltip', :'data-placement' => 'right', :'title' => 'Add a skill' do %>
+                    <i class="fas fa-plus"></i>
+                <% end %>
+
+              </div>
+              <div class="rounded-circle bg-light text-center">
+                <%= link_to positions_path, :'data-toggle' => 'tooltip', :'data-placement' => 'right', :'title' => 'List of positions' do %>
+                    <i class="fas fa-suitcase"></i>
+                <% end %>
+              </div>
+              <div class="rounded-circle bg-light text-center">
+                <%= link_to new_position_path, :'data-toggle' => 'tooltip', :'data-placement' => 'right', :'title' => 'Add a position' do %>
+                    <i class="fas fa-plus"></i>
+                <% end %>
+              </div>
+              <div class="rounded-circle bg-light text-center">
+                <%= link_to links_path, :'data-toggle' => 'tooltip', :'data-placement' => 'right', :'title' => 'List of links' do %>
+                    <i class="fas fa-link"></i>
+                <% end %>
+              </div>
+              <div class="rounded-circle bg-light text-center">
+                <%= link_to new_link_path, :'data-toggle' => 'tooltip', :'data-placement' => 'right', :'title' => 'Add a link' do %>
+                    <i class="fas fa-plus"></i>
+                <% end %>
+              </div>
+            </nav>
+          </div>
+          <main class="col-md-10 col-12 main-content">
+            <div class="row">
+              <!-- desktop nav -->
+              <nav class="navbar navbar-expand-sm bg-white border-bottom fixed-top first-nav">
+                <ul class="navbar-nav flex-row align-items-center navbar-desktop">
+                  <li class="nav-item ml-3">
+                    <a href="#" class="font-weight-bold text-uppercase">
+                      <%= yield :title %>
+                    </a>
+                  </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto align-items-center">
+                  <li class="nav-item">
+                    <%= link_to "Links", links_path, class: "p-2 text-dark nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "Add a project", new_project_path, class: "p-2 bg-oschool text-white rounded nav-link" %>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                      <img class="rounded-circle img-fluid user-avatar" src="https://secure.gravatar.com/avatar/9c275cba24f7c939201cda28f832f8e0?s=80" alt="User">
+                    </a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="/logout">Logout</a>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+
+              <!-- mobile nav -->
+              <nav class="navbar navbar-expand-sm bg-white border-bottom fixed-top d-md-none second-nav">
+                <ul class="navbar-nav flex-row align-items-center w-100 d-flex justify-content-between">
+                  <li class="nav-item">
+                    <a href="#">
+                      <i class="fas fa-bars hamburger acumin-gray-color"></i>
+                    </a>
+                  </li>
+                  <li class="nav-item ml-3">
+                    <a href="#" class="font-weight-bold text-uppercase">
+                      Admin
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#">
+                      <i class="fas fa-search hamburger acumin-gray-color"></i>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              
+
+            </div>
+            <div class="row">
+              <!-- side menu -->
+              <nav class="col-6 navbar bg-acumin-gray-color side-menu d-none">
+                <ul class="navbar-nav text-white">
+                  <li class="nav-item">
+                    <a href="" class="nav-link text-uppercase">
+                      homepage
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="" class="nav-link text-uppercase">
+                      articles
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="" class="nav-link text-uppercase">
+                      log in
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="" class="nav-link text-uppercase">
+                      register
+                    </a>
+                  </li>
+
+                  <hr class="text-white border border-white w-100">
+
+                  <li class="nav-item">
+                    <a href="" class="nav-link text-uppercase">
+                      <img class="rounded-circle img-fluid user-avatar" src="https://secure.gravatar.com/avatar/9c275cba24f7c939201cda28f832f8e0?s=80" alt="User">
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a href="" class="nav-link">
+                      Log out
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <div id="overlay"></div>
+            </div>
+
+            <% if flash[:notice] %>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="alert alert-success mr-auto ml-auto w-50 mt-3">
+                            <strong>Success!</strong>
+                            <%= notice %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+
+            <%= yield %>
+            
+
+          </main>
+        </div>
+    </div>
+
+    <%=javascript_include_tag "https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"  %>
+
+    <script>
+    
+      $(document).ready(function() {
+          $('.js-example-basic-multiple').select2();
+      });
+
+    </script>
+
+
+
+   <script>
+      feather.replace()
+    </script>
+
+    <script>
+      $('.hamburger').click(function() {
+        if ($(window).width() < 768) {
+          $('.side-menu').toggleClass('d-none');
+          $('#overlay').fadeToggle(300);
+        }
+      });
+    </script>
+
+    <script>
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    </script>
+
+  </body>
+</html>

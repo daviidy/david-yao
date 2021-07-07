@@ -8,22 +8,22 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" %>
     <%=javascript_include_tag "https://kit.fontawesome.com/d86848cfe0.js"  %> 
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" %>
   </head>
 
   <body>
+    
 
     <%= yield %>
 
-    <%=javascript_include_tag "https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"  %>
-
     <script>
-    
-      $(document).ready(function() {
-          $('.js-example-basic-multiple').select2();
-      });
-
+        $('.link').hover(function() {
+            $(this).find("a").css('color', 'rgb(61, 59, 60)');
+        }, function() {
+            // on mouseout, reset the background colour
+            $(this).find("a").css('color', '#fff');
+        });
     </script>
   </body>
 </html>
