@@ -1,7 +1,22 @@
-<% @positions.each do |position| %>
-    <ul>
-        <li> 
-            <%= link_to position.title, position_path(position) %>
-        </li>
-    </ul>
-<% end %>
+<div class="row justify-content-center">
+    <% @positions.each do |position| %>
+        <div class="col-12 col-md-3 border rounded p-3 list-item">
+            <div class="item-img d-flex flex-wrap justify-content-between">
+                <img class="img-fluid rounded-circle" style="width: 10%;" src="https://cdn.loom.com/avatars/4812981_a5e2e546af88de880e5413c7a108f263_192.jpg" alt="">
+                <div class="actions d-flex flex-wrap justify-content-between">
+                <%= link_to position_path(position), method: :delete, data: {confirm: "Really delete the position?"} do %>
+                    <i class="far fa-trash-alt"></i>
+                <% end %>
+                <%= link_to edit_position_path(position) do %>
+                    <i class="far fa-edit"></i>
+                <% end %>
+                </div>
+            </div>
+            <div class="infos">
+                <p class="font-weight-bold mb-3 mt-3">
+                    <%=position.title%>
+                </p>
+            </div>
+        </div>
+    <% end %>
+</div>

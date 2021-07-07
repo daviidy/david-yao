@@ -1,5 +1,6 @@
 class SkillsController < ApplicationController
     before_action :authorize
+    layout "admin"
     def index
         @skills = Skill.all
     end

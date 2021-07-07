@@ -1,5 +1,6 @@
 class PositionsController < ApplicationController
     before_action :authorize
+    layout "admin"
     def index
         @positions = Position.all
     end

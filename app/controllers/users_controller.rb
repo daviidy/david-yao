@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     before_action :authorize, only: %i[home]
     before_action :auth, only: %i[new]
     layout "welcome", :only => [ :welcome ]
+    layout "admin", :only => [ :home ]
     def new
     end
 
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
     end 
 
     def home
-        render :home
+        @projects = Project.all
     end
 
     def welcome

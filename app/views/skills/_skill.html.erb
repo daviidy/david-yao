@@ -1,21 +1,23 @@
-<%= form_for(@skill, html: {multipart: true}) do |f| %>
-  <ul>
-  <% @skill.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
+<div class="row justify-content-center mt-3">
+  <%= form_for(@skill, html: {:class => 'border rounded p-3', multipart: true}) do |f| %>
+    <ul>
+      <% @skill.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.url_field :image, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :skill_type %>
+      <%= f.select :skill_type, ['languages', 'skills', 'databases', 'frameworks']%>
+    </div>
+    <%= f.submit 'Create', {:class => 'btn bg-oschool text-white rounded'} %>
   <% end %>
-  </ul>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %> 
-  </p>
-  <p>
-    <%= f.label :image %><br />
-    <%= f.url_field :image %>
-  </p>
-  <p>
-    <%= f.label :skill_type %><br />
-    <%= f.select :skill_type, ['languages', 'skills', 'databases', 'frameworks']%>
-  </p>
-    <%= f.submit %>
-  </p>
-<% end %>
+</div>
+

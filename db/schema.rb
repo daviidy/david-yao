@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_03_222344) do
+ActiveRecord::Schema.define(version: 2021_07_06_130526) do
+
+  create_table "links", force: :cascade do |t|
+    t.string "text"
+    t.string "path"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "position_projectings", force: :cascade do |t|
     t.integer "position_id"
