@@ -1,0 +1,248 @@
+<section id="portfolio" class="container-fluid pt-5 pb-5 bg-light">
+    <div class="row spacing">
+      
+      <% @projects.each do |project| %>
+        <div class="col-12 mb-5 p-5">
+          <div class="project bg-white p-3 row">
+            <img class="rounded img-fluid col-sm-6" src=<%= project.image %> alt=<%= project.title %>>
+            <div class="card-body col-sm-6">
+              <h4 class="card-title font-weight-bold"><%= project.title %></h4>
+              <div class="d-inline-flex">
+                <p class="text-uppercase m-2 font-weight-bold">
+                  <%= project.company %>
+                </p>
+                <p class="m-2">
+                  <i class="fas fa-circle"></i>
+                  <%= project.position.title %>
+                </p>
+                <p class="m-2">
+                  <i class="fas fa-circle"></i>
+                  <%= project.start_year %> - <%= project.end_year %>
+                </p>
+              </div>
+              <p class="card-text mb-3">
+                <%= project.short_desc %>
+              </p>
+              <div class="d-inline-flex flex-wrap mb-3">
+                
+                <% project.skills.each do |skill| %>
+                  <span class="badge background-primary-light primary text-lowercase m-2"><%= skill.title %></span>
+                <% end %>
+                
+              </div>
+              <div class="">
+                <button href="#" class="project-cta p-2 primary" data-toggle="modal" data-target="#project<%= project.id %>">
+                  See Project
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      
+      
+    </div>
+  </section>
+  <section id="about" class="container-fluid bg-white p-5">
+    <div class="row spacing">
+      <div class="col-12 col-sm-6 mb-4">
+        <h1 class="title font-weight-bold mb-4">
+          About Myself
+        </h1>
+        <p class="description mb-4">
+          I've been programming websites and web-apps
+          for the past five years.
+          I’ve achieved frontend, backend,
+          and architecture skills, being able
+          to build a variety of web applications
+          following criteria of robustness,
+          security, and scalability. <br> <br>
+
+          I’m an organized, detail-oriented,
+          self-motivated, and dedicated
+          professional, able to build products
+          without constant supervision.
+          I’m a passionate professional and
+          I seek a deep understanding of
+          client businesses to raise relevant
+          suggestions and help with their
+          interests as a whole.
+
+        </p>
+        <p class="text-uppercase primary mb-4">Let's connect</p>
+        <div class="d-inline-flex flex-wrap">
+          <a target="_blank" href="https://twitter.com/DavidYao3">
+            <i class="fab fa-twitter m-2"></i>
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/in/david-yao-armel/?locale=en_US">
+            <i class="fab fa-linkedin-in m-2"></i>
+          </a>
+          <a target="_blank" href="https://github.com/daviidy">
+            <i class="fab fa-github m-2"></i>
+          </a>
+        </div>
+        <div>
+          <button href="#" class="project-cta p-2">
+            <a target="_blank" href="https://docs.google.com/document/d/1hkE0B7I1BHQrXonTdxyXza8FSxPYGEkWZPpbKcf-Myg/edit?usp=sharing" class="primary">Get my resume</a>
+          </button>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6">
+
+        <!-- Languages -->
+        <div class="d-flex justify-content-between border-bottom mb-3" data-toggle="collapse" data-target="#languages">
+          <h5 class="skill-title font-weight-bold">
+            Languages
+          </h5>
+          <i class="fas fa-angle-down"></i>
+        </div>
+        <div class="collapse mb-3" id="languages">
+          
+          <div class="d-sm-flex flex-wrap">
+            <% @languages.each do |language| %>
+              <div class="skill d-inline-flex flex-wrap d-sm-block rounded bg-light mt-3 align-items-center">
+                <img width="50" class="m-2 img-fluid rounded" src="<%= language.image %>" alt="<%= language.title %>">
+                <p class="m-2 font-weight-bold"><%= language.title %></p>
+              </div>
+            <% end %>
+          </div>
+          
+        </div>
+
+        <!-- Frameworks -->
+        <div class="d-flex justify-content-between border-bottom mb-3" data-toggle="collapse" data-target="#frameworks">
+          <h5 class="skill-title font-weight-bold">
+            Frameworks and tools
+          </h5>
+          <i class="fas fa-angle-down"></i>
+        </div>
+        <div class="collapse mb-3" id="frameworks">
+          <div class="d-sm-flex flex-wrap">
+            
+            <% @frameworks.each do |framework| %>
+              <div class="skill d-inline-flex flex-wrap d-sm-block rounded bg-light mt-3 align-items-center">
+                <img width="50" class="m-2 img-fluid rounded" src="<%= framework.image %>" alt="<%= framework.title %>">
+                <p class="m-2 font-weight-bold"><%= framework.title %></p>
+              </div>
+            <% end %>
+            
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="d-flex justify-content-between border-bottom mb-3" data-toggle="collapse" data-target="#skills">
+          <h5 class="skill-title font-weight-bold">
+            Skills
+          </h5>
+          <i class="fas fa-angle-down"></i>
+        </div>
+        <div class="collapse mb-3" id="skills">
+          <div class="d-sm-flex flex-wrap">
+            
+            <% @skills.each do |skill| %>
+              <div class="skill d-inline-flex flex-wrap d-sm-block rounded bg-light mt-3 align-items-center">
+                <img width="50" class="m-2 img-fluid rounded" src="<%= skill.image %>" alt="<%= skill.title %>">
+                <p class="m-2 font-weight-bold"><%= skill.title %></p>
+              </div>
+            <% end %>
+            
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="d-flex justify-content-between border-bottom mb-3" data-toggle="collapse" data-target="#databases">
+          <h5 class="skill-title font-weight-bold">
+            Databases
+          </h5>
+          <i class="fas fa-angle-down"></i>
+        </div>
+        <div class="collapse mb-3" id="databases">
+          <div class="d-sm-flex flex-wrap">
+            <% @databases.each do |database| %>
+              <div class="skill d-inline-flex flex-wrap d-sm-block rounded bg-light mt-3 align-items-center">
+                <img width="50" class="m-2 img-fluid rounded" src="<%= database.image %>" alt="<%= database.title %>">
+                <p class="m-2 font-weight-bold"><%= database.title %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <% @projects.each do |project| %>
+    
+  
+  <div class="modal" id="project<%= project.id %>">
+        <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+            <div class="bg-white p-3 row">
+                <div class="col-12">
+                <h4 class="card-title font-weight-bold"><%= project.title %></h4>
+                <div class="d-inline-flex">
+                    <p class="text-uppercase m-2 font-weight-bold">
+                    <%= project.company %>
+                    </p>
+                    <p class="m-2">
+                    <i class="fas fa-circle"></i>
+                    <%= project.position.title %>
+                    </p>
+                    <p class="m-2">
+                    <i class="fas fa-circle"></i>
+                    <%= project.start_year %> - <%= project.end_year %>
+                    </p>
+                </div>
+                </div>
+                <img class="rounded img-fluid col-12" src="<%= project.image %>" alt="<%= project.title %>">
+                <div class="row">
+                <div class="col-8">
+                    <p>
+                    <%= project.long_desc %>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <div class="d-inline-flex flex-wrap mb-3 pb-3 border-bottom w-100">
+                      
+                      <% project.skills.each do |skill| %>
+                        <span class="badge background-primary-light primary text-lowercase m-2"><%= skill.title %></span>
+                      <% end %>
+                      
+                    </div>
+                    <div class="d-inline-flex justify-content-between">
+                    <button class="project-cta p-2 primary m-2" data-toggle="modal" data-target="#project1">
+                        <a href=<%= project.demo %> target="_blank">
+                        See live
+                        </a>
+                        <i class="fas fa-external-link-alt primary"></i>
+                    </button>
+                    <button href="#" class="project-cta p-2 primary m-2" data-toggle="modal" data-target="#project1">
+                        <a href=<%= project.github %> target="_blank">
+                        See source
+                        </a>
+                        <i class="fab fa-github primary"></i>
+                    </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+    <% end %>

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     before_action :auth, only: %i[new]
     layout "welcome", :only => [ :welcome ]
     layout "admin", :only => [ :home ]
+    layout "portfolio", :only => [ :projects ]
     def new
     end
 
@@ -21,7 +22,15 @@ class UsersController < ApplicationController
     end
 
     def welcome
-        render :welcome
+        @links = Link.all
+    end
+
+    def projects
+        @projects = Project.all
+        @languages = Skill.languages.order('id DESC')
+        @frameworks = Skill.frameworks.order('id DESC')
+        @skills = Skill.skills.order('id DESC')
+        @databases = Skill.databases.order('id DESC')
     end
     
 

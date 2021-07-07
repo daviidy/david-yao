@@ -10,40 +10,18 @@
             </div>
         </div>
         <div class="row links">
-            <div class="col-12 link text-center mb-3">
-                <a href="">
+            
+            <% @links.each do |link| %>
+                <div class="col-12 link text-center mb-3">
+                <a href=<%= link.path %>>
                     <p class="font-weight-bold">
-                        Portfolio
+                        <%= link.text %>
                     </p>
                 </a>
             </div>
-            <div class="col-12 link text-center mb-3">
-                <a href="">
-                    <p class="font-weight-bold">
-                        Tiktok
-                    </p>
-                </a>
-            </div>
-            <div class="col-12 link text-center mb-3">
-                <a href="">
-                    <p class="font-weight-bold">
-                        Blog
-                    </p>
-                </a>
-            </div>
-            <div class="col-12 link text-center mb-3">
-                <a href="">
-                    <p class="font-weight-bold">
-                        YouTube
-                    </p>
-                </a>
-            </div>
-            <div class="col-12 link text-center mb-3">
-                <a href="">
-                    <p class="font-weight-bold">
-                        Instagram
-                    </p>
-                </a>
-            </div>
+            <% end %>
+            
+            
+            
         </div>
     </div>
