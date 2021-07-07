@@ -1,11 +1,6 @@
 class ProjectsController < ApplicationController
     before_action :authorize
-    layout "admin", :except => [ :adminIndex ]
     def index
-        @projects = Project.all
-    end
-
-    def adminIndex
         @projects = Project.all
     end
 
