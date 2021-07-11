@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
     before_action :authorize
+    layout "admin"
     def index
         @projects = Project.all
     end
