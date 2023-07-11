@@ -21,3 +21,6 @@ services:
         internal_network
     ports:
       - '5432:5432'
+networks:
+  internal_network:
+    driver: bridge
