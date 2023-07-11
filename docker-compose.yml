@@ -14,5 +14,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: app_development
+      POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - '5432:5432'
