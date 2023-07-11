@@ -8,19 +8,11 @@ services:
       - '3000:3000'
     depends_on:
       - db
-    networks:
-      - internal_network
   db:
     image: postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: app_development
-      POSTGRES_HOST_AUTH_METHOD: trust
-      networks:
-        internal_network
     ports:
       - '5432:5432'
-networks:
-  internal_network:
-    driver: bridge
