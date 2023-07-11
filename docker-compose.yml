@@ -8,6 +8,8 @@ services:
       - '3000:3000'
     depends_on:
       - db
+    networks:
+      - internal_network
   db:
     image: postgres
     environment:
